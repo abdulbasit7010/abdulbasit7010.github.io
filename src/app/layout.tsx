@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: `${profile.name} — ${profile.role}`,
-  description: profile.summary,
+  description: profile.headline,
   metadataBase: new URL("https://abdulbasit7010.github.io"),
   openGraph: {
     title: `${profile.name} — ${profile.role}`,
-    description: "Full Stack Engineer building enterprise platforms and AI developer tooling.",
+    description: profile.headline,
     type: "website",
   },
 };

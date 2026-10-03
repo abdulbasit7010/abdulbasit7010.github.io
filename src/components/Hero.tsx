@@ -94,7 +94,7 @@ function AgentTerminal() {
 }
 
 export default function Hero() {
-  const role = useTypewriter(profile.rotatingRoles);
+  const outcome = useTypewriter(profile.outcomes);
 
   return (
     <section id="top" className="relative overflow-hidden pt-36 pb-20 sm:pt-44">
@@ -138,9 +138,9 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             className="mt-5 text-xl text-muted sm:text-2xl"
           >
-            {profile.role} building
+            I turn
             <br className="sm:hidden" />{" "}
-            <span className="font-medium text-fg">{role}</span>
+            <span className="font-medium text-fg">{outcome}</span>
             <span className="ml-0.5 inline-block h-6 w-[2px] translate-y-1 animate-blink bg-accent" />
           </motion.p>
 
@@ -150,8 +150,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.25 }}
             className="mt-6 max-w-xl leading-relaxed text-muted"
           >
-            5+ years shipping enterprise web apps for Fortune 500 and global clients. Right now I&apos;m
-            building AI tooling with LLM tool-calling, MCP and LangGraph at S&amp;P Global.
+            {profile.intro}
           </motion.p>
 
           <motion.div
@@ -164,7 +163,7 @@ export default function Hero() {
               href="#projects"
               className="group inline-flex items-center gap-2 rounded-full bg-fg px-5 py-3 text-sm font-medium text-bg transition hover:opacity-90"
             >
-              View my work
+              See the problems I&apos;ve solved
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a

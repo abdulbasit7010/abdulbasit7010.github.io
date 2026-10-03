@@ -9,25 +9,31 @@ export const profile = {
   github: "https://github.com/abdulbasit7010",
   linkedin: "", // e.g. "https://www.linkedin.com/in/your-handle" — hidden while empty
   resumeUrl: "", // e.g. "/resume.pdf" (put the file in /public) — hidden while empty
-  rotatingRoles: [
-    "enterprise web platforms",
-    "AI developer tooling",
-    "agentic workflows with MCP",
-    "cloud-native deployments",
+  // Used for the page meta description and social previews.
+  headline:
+    "Full Stack Engineer who turns slow, manual and fragile processes into software that whole organizations rely on, from enterprise automation platforms to safe AI tooling for developers.",
+  // Completes the hero line "I turn …"
+  outcomes: [
+    "manual processes into company-wide platforms",
+    "30-minute releases into 2-minute deploys",
+    "LLMs into safe, scoped developer tools",
+    "multi-million-row tables into fast queries",
   ],
+  intro:
+    "For over five years I've been the engineer teams bring in when a process is slow, manual or risky. At S&P Global that has meant replacing manual onboarding and time tracking with platforms the entire company now uses, and giving developers an AI assistant that can act inside Azure DevOps without ever stepping outside its permissions.",
   summary:
-    "Full Stack Engineer with 5+ years building enterprise web applications for Fortune 500 and global clients. I own features end to end, from the data layer and API through containerized AWS deployment and GitHub-triggered CI/CD. These days I'm building AI developer tooling: an Azure DevOps extension that uses LLM tool-calling, MCP connections, custom skills and guardrails.",
+    "Most of the software I've shipped started as a complaint: onboarding that depended on manual hand-offs, releases that tied up an engineer for half an hour, reports that struggled against multi-million-row tables. I find out where the time and risk actually go, then own the fix end to end, from the schema and API through the interface to the pipeline that ships it.",
   about: [
-    "I work across the whole stack: Angular, Next.js, Node.js, NestJS and OutSystems, backed by SQL Server and well-designed REST APIs.",
-    "I've been named Person of the PI at S&P Global twice for automation platforms that were adopted company-wide.",
-    "I mentor junior developers, lead code reviews, and run technical workshops.",
+    "I diagnose before I build, which is why the same toolkit of Angular, Next.js, NestJS, OutSystems and SQL Server has solved very different problems for finance, telecom, mobility and education clients.",
+    "I build for adoption rather than for the demo, and two internal platforms I delivered were rolled out company-wide at S&P Global, each earning a Person of the PI award.",
+    "I make sure knowledge doesn't sit with one person by leading code reviews, mentoring four junior developers and running OutSystems workshops for the wider team.",
   ],
 };
 
 export const stats = [
-  { value: "5+", label: "Years shipping production software" },
-  { value: "2×", label: "Person of the PI at S&P Global" },
-  { value: "30m → 2m", label: "Deploy time after CI/CD automation" },
+  { value: "5+", label: "Years solving production problems" },
+  { value: "2×", label: "Person of the PI for company-wide platforms" },
+  { value: "30m → 2m", label: "Release time after automating CI/CD" },
   { value: "~30", label: "Reusable OutSystems modules architected" },
 ];
 
@@ -49,13 +55,13 @@ export const experience: Experience[] = [
     period: "Apr 2023 — Present",
     location: "Islamabad, Pakistan",
     highlights: [
-      "Built and shipped three enterprise platforms end to end with Angular, Next.js, Node.js and OutSystems, each with a responsive UI over scalable REST APIs.",
-      "Built an Azure DevOps extension that connects an external LLM through tool-calling and MCP, with custom skills, guardrails and prompt strategies so the model only takes scoped, validated actions.",
-      "Designed multi-step agent workflows in LangGraph with agent-to-agent handoffs and state carried across steps.",
-      "Deployed containerized workloads on AWS EKS with EC2, ALB/NLB and Route 53 for high-availability delivery.",
-      "Automated build and release with GitHub-triggered CI/CD, cutting deploy time from 30 minutes to under 2.",
-      "Tuned SQL Server performance with indexing and execution-plan analysis on multi-million-row datasets.",
-      "Led code reviews, mentored four junior developers and ran OutSystems workshops.",
+      "Replaced manual internal processes with three enterprise platforms built in Angular, Next.js, Node.js and OutSystems, owning each one from the REST APIs through to the responsive UI.",
+      "Made it safe to let an LLM act on developers' behalf by building an Azure DevOps extension in which every MCP tool call is constrained by custom skills, guardrails and prompt strategies.",
+      "Orchestrated multi-step agent workflows in LangGraph, carrying state between agents so complex requests finish without a human stitching the steps together.",
+      "Cut release time from 30 minutes to under 2 by moving build and deploy onto GitHub-triggered CI/CD, freeing engineers from babysitting releases.",
+      "Kept services highly available by running containerized workloads on AWS EKS behind ALB/NLB load balancing and Route 53 routing.",
+      "Resolved performance bottlenecks on multi-million-row SQL Server datasets through targeted indexing and execution-plan analysis.",
+      "Raised the team's bar by leading code reviews, mentoring four junior developers and running OutSystems workshops.",
     ],
     stack: ["Angular", "Next.js", "NestJS", "OutSystems", "AWS EKS", "LangGraph", "MCP", "SQL Server"],
   },
@@ -65,11 +71,11 @@ export const experience: Experience[] = [
     period: "Mar 2021 — Apr 2023",
     location: "Islamabad, Pakistan",
     highlights: [
-      "Delivered full-stack apps for international clients in telecom, mobility and e-learning.",
-      "Designed RESTful APIs in NestJS and Node.js with server-side pagination, validation and secure endpoints for large datasets.",
-      "Deployed on AWS using Lambda for event-driven processing, S3 for storage and EC2 for compute.",
-      "Built reporting and analytics modules with D3.js and Highcharts, including CSV and PDF export pipelines.",
-      "Improved front-end performance with lazy loading, throttling, caching and rendering optimizations.",
+      "Delivered full-stack products for international clients in telecom, mobility and e-learning, taking each from requirements to production.",
+      "Made very large datasets usable through the API by designing NestJS and Node.js endpoints with server-side pagination, validation and secured access.",
+      "Moved heavy processing off the request path with event-driven AWS Lambda functions, backed by S3 storage and EC2 compute.",
+      "Turned raw operational data into decisions with D3.js and Highcharts reporting modules, including CSV and PDF export pipelines.",
+      "Made data-heavy interfaces feel fast through lazy loading, throttling, caching and rendering optimizations.",
     ],
     stack: ["Angular", "React", "Vue.js", "TypeScript", "NestJS", "AWS Lambda", "D3.js", "Redux"],
   },
@@ -78,7 +84,9 @@ export const experience: Experience[] = [
 export type Project = {
   title: string;
   client: string;
-  description: string;
+  problem: string;
+  solution: string;
+  impact: string;
   tags: string[];
   featured?: boolean;
 };
@@ -87,38 +95,53 @@ export const projects: Project[] = [
   {
     title: "AI Assistant for Azure DevOps",
     client: "S&P Global",
-    description:
-      "An Azure DevOps extension that brings an LLM into developer workflows. It uses tool-calling and MCP connections, custom skills and guardrails so the model performs scoped, validated actions. Multi-step flows are orchestrated with LangGraph.",
+    problem:
+      "Developers lost time to repetitive Azure DevOps chores like writing PR summaries and linking work items, yet giving an LLM write access to company repositories was too risky to allow.",
+    solution:
+      "An Azure DevOps extension that connects an LLM through tool-calling and MCP, with custom skills and LangGraph workflows for multi-step tasks, where every action passes guardrails that check scope and validate inputs before anything is written.",
+    impact: "Routine DevOps work is delegated to an assistant that can only take scoped, validated actions.",
     tags: ["LLM Tool Calling", "MCP", "LangGraph", "Guardrails"],
     featured: true,
   },
   {
     title: "Org-wide Automation Platforms",
     client: "S&P Global",
-    description:
-      "A company-wide time-tracking app and a fully automated employee onboarding platform that replaced manual processes. Both were adopted across the organization and earned two Person of the PI awards.",
+    problem:
+      "Time tracking and employee onboarding depended on manual hand-offs that were slow to run, easy to get wrong and difficult to scale across a global workforce.",
+    solution:
+      "Two OutSystems platforms backed by REST APIs and SQL Server, a company-wide time-tracking system and a fully automated onboarding workflow, both built on reusable modules.",
+    impact: "Adopted across the whole organization and recognized with two Person of the PI awards.",
     tags: ["OutSystems", "REST", "SQL Server"],
     featured: true,
   },
   {
     title: "Safety & Monitoring Platform",
     client: "Uber Brazil",
-    description:
-      "Led frontend development of an admin portal with live and recorded video access, advanced configuration and secure preference management for driver and passenger safety.",
+    problem:
+      "Safety teams needed one place to review live and recorded trip video and manage rider and driver safety settings without exposing sensitive data.",
+    solution:
+      "Led frontend development of a MEAN-stack admin portal with live and recorded video access, advanced configuration and secure preference management.",
+    impact: "Safety operators gained a single, secure console for monitoring and incident review.",
     tags: ["MEAN Stack", "Angular", "Video"],
   },
   {
     title: "USSD Management Portals",
     client: "GLO · Africa",
-    description:
-      "A suite of telecom portals (Admin, Service Builder, Campaign Manager and Reporting) with visual USSD tree building, automated campaigns and D3 analytics.",
+    problem:
+      "Launching or changing a USSD service or marketing campaign required engineering effort every time, which slowed down the business teams who owned them.",
+    solution:
+      "Four portals covering Admin, Service Builder, Campaign Manager and Reporting, with a visual USSD tree builder, automated campaigns, role-based access and D3 analytics.",
+    impact: "Business teams design services, run campaigns and track results without waiting on engineering.",
     tags: ["Angular", "D3.js", "RBAC"],
   },
   {
     title: "Online Learning & Video Platform",
     client: "MTA",
-    description:
-      "An end-to-end e-learning product with React and Vue portals on Node.js, plus custom video sessions, Lambda media processing and subscriptions.",
+    problem:
+      "The client wanted to take its teaching online but needed live sessions, media processing and paid subscriptions to work together as one product.",
+    solution:
+      "React and Vue portals on Node.js with custom video sessions, AWS Lambda pipelines for media processing and subscription management.",
+    impact: "A complete learning business, covering delivery, content and revenue, running on one platform.",
     tags: ["React", "Vue.js", "AWS Lambda"],
   },
 ];
@@ -144,9 +167,9 @@ export const awards = [
   {
     title: "Person of the PI ×2",
     org: "S&P Global",
-    detail: "For the enterprise time-tracking system and the automated onboarding platform.",
+    detail: "Awarded for the enterprise time-tracking system and the automated onboarding platform, both adopted company-wide.",
   },
-  { title: "Bronze Spot Award", org: "S&P Global · Q3 2024", detail: "For high-impact delivery." },
+  { title: "Bronze Spot Award", org: "S&P Global · Q3 2024", detail: "Recognized for high-impact delivery." },
   { title: "OutSystems Associate Reactive Developer", org: "Certification", detail: "Reactive web development on OutSystems." },
 ];
 

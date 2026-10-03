@@ -25,14 +25,18 @@ function Chip({ children }: { children: React.ReactNode }) {
 /* ---------------- About ---------------- */
 export function About() {
   const pillars = [
-    { icon: Code2, title: "Frontend", text: "Angular, Next.js, React, Vue" },
-    { icon: Server, title: "Backend", text: "Node.js, NestJS, REST, .NET" },
-    { icon: Bot, title: "AI & Agents", text: "MCP, tool-calling, LangGraph" },
-    { icon: Cloud, title: "Cloud", text: "AWS EKS, Lambda, CI/CD" },
+    { icon: Code2, title: "Automating manual work", text: "Internal platforms that replace hand-offs and spreadsheets" },
+    { icon: Bot, title: "Putting AI to work safely", text: "LLM agents with scoped tools, MCP and guardrails" },
+    { icon: Cloud, title: "Shipping faster", text: "CI/CD and cloud infrastructure that make releases routine" },
+    { icon: Database, title: "Taming data at scale", text: "APIs and queries that stay fast on millions of rows" },
   ];
   return (
     <section id="about" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24">
-      <SectionHeading eyebrow="About" title="I build software from the database to the deploy pipeline." />
+      <SectionHeading
+        eyebrow="About"
+        title="I start with the problem, not the stack."
+        sub="The technology changes from project to project, but the goal stays the same: find what is costing the business time or creating risk, and remove it."
+      />
       <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
         <Reveal>
           <SpotlightCard className="h-full p-8">
@@ -69,7 +73,7 @@ export function About() {
 export function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24">
-      <SectionHeading eyebrow="Experience" title="Where I've worked" />
+      <SectionHeading eyebrow="Experience" title="What I've delivered, and where" />
       <div className="relative">
         <div className="absolute top-2 bottom-2 left-[7px] w-px bg-gradient-to-b from-accent via-border to-transparent md:left-[calc(220px+7px)]" />
         <div className="space-y-12">
@@ -119,9 +123,9 @@ export function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-6xl scroll-mt-24 px-5 py-24">
       <SectionHeading
-        eyebrow="Selected work"
-        title="Projects I've built and led"
-        sub="Enterprise platforms, AI tooling and products for clients in finance, mobility, telecom and education."
+        eyebrow="Case studies"
+        title="Problems I've solved"
+        sub="Each of these began with a real business problem in finance, mobility, telecom or education, so for every one you'll see what was in the way, what I built and what changed as a result."
       />
       <div className="grid gap-5 md:grid-cols-6">
         {projects.map((p, i) => (
@@ -132,7 +136,20 @@ export function Projects() {
                 <ArrowUpRight className="h-5 w-5 text-subtle transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
               </div>
               <h3 className={`mt-3 font-semibold tracking-tight ${p.featured ? "text-2xl" : "text-lg"}`}>{p.title}</h3>
-              <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{p.description}</p>
+              <dl className="mt-4 flex-1 space-y-4 text-[15px] leading-relaxed">
+                <div>
+                  <dt className="font-mono text-[11px] uppercase tracking-wider text-subtle">The problem</dt>
+                  <dd className="mt-1 text-muted">{p.problem}</dd>
+                </div>
+                <div>
+                  <dt className="font-mono text-[11px] uppercase tracking-wider text-subtle">What I built</dt>
+                  <dd className="mt-1 text-muted">{p.solution}</dd>
+                </div>
+                <div className="rounded-xl border border-accent/20 bg-accent-soft px-4 py-3">
+                  <dt className="font-mono text-[11px] uppercase tracking-wider text-accent">The result</dt>
+                  <dd className="mt-1 font-medium text-fg">{p.impact}</dd>
+                </div>
+              </dl>
               <div className="mt-6 flex flex-wrap gap-2">
                 {p.tags.map((t) => (
                   <Chip key={t}>{t}</Chip>
@@ -153,7 +170,7 @@ export function Skills() {
   return (
     <section id="skills" className="scroll-mt-24 py-24">
       <div className="mx-auto max-w-6xl px-5">
-        <SectionHeading eyebrow="Toolbox" title="Skills and technologies" />
+        <SectionHeading eyebrow="Toolbox" title="The tools behind the results" />
       </div>
 
       <div className="mask-fade-x mb-14 overflow-hidden">
@@ -235,11 +252,11 @@ export function Contact() {
           </div>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-accent">Contact</p>
           <h2 className="mx-auto mt-4 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
-            Let&apos;s build something <span className="text-gradient">great</span> together.
+            Have a problem <span className="text-gradient">worth solving</span>?
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-muted">
-            I&apos;m open to full stack and AI engineering roles, collaborations and interesting problems. My inbox is
-            always open.
+            I&apos;m open to full stack and AI engineering roles where success is measured by outcomes rather than
+            features shipped, so tell me what&apos;s slowing your team down and let&apos;s talk about how to fix it.
           </p>
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <a
